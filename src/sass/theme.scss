@@ -1,0 +1,64 @@
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
+
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css');
+
+@import 'relief/superfish';
+@import 'relief/prettyPhoto';
+@import 'relief/flexslider';
+
+@import 'relief_styles';
+
+@import 'relief/responsive';
+@import 'relief/colours/green';
+
+body {
+  // padding-top: 50px;
+  /*padding-bottom: 30px;*/
+}
+
+// .theme-dropdown .dropdown-menu {
+//   display: block;
+//   position: static;
+//   margin-bottom: 20px;
+// }
+
+// .theme-showcase > p > .btn {
+//   margin: 5px 0;
+// }
+
+// Headers
+#main-menu a, .widget-title h4, .title1{
+    font-family: 'Droid Arabic Kufi', serif;
+}
+#title h1 {
+    font-family: 'Droid Arabic Naskh', serif;
+    font-weight: bold;
+}
+p, a, span {
+    font-family: 'Droid Arabic Naskh', serif;
+}
+
+// correct directions of footer's arrows
+.jcarousel-next-horizontal {
+    &, &:hover, &:focus, &:active {
+        background-position: 0 -36px;
+    }
+}
+.jcarousel-prev-horizontal, .jcarousel-prev-disabled-horizontal {
+    &, &:hover, &:focus, &:active {
+        background-position: -26px 0;
+    }
+}
+
+// fix flexslider
+.flex-viewport {
+    direction: rtl;
+}
+.flex-caption {
+    text-align: left;
+}
+
+
+.flex-viewport img {
+    height: 450px;
+}

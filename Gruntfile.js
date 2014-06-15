@@ -29,12 +29,17 @@ module.exports = function(grunt) {
 
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
-        tasks: ['assemble']
+        files: ['<%= config.src %>/{content,data,templates,js,sass}/{,*/,*/*/}*.{md,hbs,yml,js,scss.json}'],
+        tasks: ['browserify', 'assemble']
+      },
+      sass: {
+        files: ['<%= config.src %>/sass/**/*.scss'],
+        tasks: ['sass', 'cssflip']
       },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: '<%= connect.options.livereload %>',
+          open: true
         },
         files: [
           '<%= config.dist %>/{,*/}*.html',
@@ -47,8 +52,8 @@ module.exports = function(grunt) {
 
     connect: {
       options: {
-        port: 9000,
-        livereload: 35729,
+        port: 9002,
+        livereload: 35727,
         // change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
@@ -67,6 +72,7 @@ module.exports = function(grunt) {
         options: {
           flatten: true,
           assets: '<%= config.dist %>/assets',
+          bower: 'bower_components/',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
           data: '<%= config.src %>/data/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
@@ -80,7 +86,66 @@ module.exports = function(grunt) {
 
     // Before generating any new files,
     // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.{html,xml}']
+    clean: ['<%= config.dist %>/**/*.{html,xml}'],
+
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
+
+    browserify: {
+      dist: {
+        files: {
+          'dist/assets/js/main.js': ['src/js/main.js'],
+        },
+        options: {
+        }
+      }
+    },
+
+    sass: {                                 // task
+        dist: {                             // target
+            files: {                        // dictionary of files
+                'dist/assets/css/theme.css': 'src/sass/theme.scss'     // 'destination': 'source'
+            }
+        }
+    },
+
+    cssflip: {
+      main: {
+        options: {
+        },
+        files: {
+          'dist/assets/css/theme-rtl.css': 'dist/assets/css/theme.css'
+        }
+      }
+    },
+
+    copy: {
+      main: {
+        expand: true,
+        cwd: 'src/images/',
+        src: '**',
+        dest: 'dist/assets/images/',
+        filter: 'isFile',
+      }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'master'
+        }
+      }
+    }
 
   });
 
@@ -88,8 +153,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('server', [
+  grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-css-flip');
+
+  grunt.loadNpmTasks('grunt-build-control');
+
+  grunt.registerTask('release', [
+    'buildcontrol'
+  ]);
+
+  grunt.registerTask('serve', [
     'clean',
     'assemble',
     'connect:livereload',
@@ -98,6 +175,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean',
+    'copy',
+    'browserify',
+    'sass',
+    'cssflip',
     'assemble'
   ]);
 

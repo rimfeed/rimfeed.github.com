@@ -1,0 +1,17 @@
+{
+  "name": "elirada",
+  "version": "0.0.0",
+  "authors": [
+    "El Hady Tolba <tolbahadi@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
