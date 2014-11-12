@@ -11,21 +11,10 @@
 @import 'relief/responsive';
 @import 'relief/colours/green';
 
-body {
-  // padding-top: 50px;
-  /*padding-bottom: 30px;*/
+
+#main-menu {
+    max-width: 750px;
 }
-
-// .theme-dropdown .dropdown-menu {
-//   display: block;
-//   position: static;
-//   margin-bottom: 20px;
-// }
-
-// .theme-showcase > p > .btn {
-//   margin: 5px 0;
-// }
-
 // Headers
 #main-menu a, .widget-title h4, .title1{
     font-family: 'Droid Arabic Kufi', serif;

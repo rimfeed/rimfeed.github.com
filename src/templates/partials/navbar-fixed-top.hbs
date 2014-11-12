@@ -12,19 +12,17 @@ component: navbar
       <div class="top-inner">
       
         <ul class="social-icons fl">
+          <li><a href="https://www.facebook.com/elirada.mr" target="_blank"><span id="facebook_icon"></span></a></li>
           <li><a href="#"><span id="twitter_icon"></span></a></li>
-          <li><a href="#"><span id="facebook_icon"></span></a></li>
           <li><a href="#"><span id="googleplus_icon"></span></a></li>
-          <li><a href="#"><span id="skype_icon"></span></a></li>
           <li><a href="#"><span id="youtube_icon"></span></a></li>
           <li><a href="#"><span id="rss_icon"></span></a></li>
         </ul>
       
         <ul class="top-menu fr">
-          <li><a href="#">تطوع</a><span>/</span></li>
+          <li><a href="#">تطوع_معنا</a><span>/</span></li>
           <li><a href="#">إتصل_بنا</a></li>
         </ul>
-      
       </div>
     
     <!-- END #top-bar -->
@@ -34,8 +32,7 @@ component: navbar
     
       <div id="title" class="fl">
         <h1>
-          <a href="index.html">جمعية الإرادة الخيرية</a>
-          {{!-- <span id="tagline">في خدمة الإنسان</span> --}}
+          <a href="index.html">{{site.title}}</a>
         </h1>
       </div>
     
@@ -52,24 +49,28 @@ component: navbar
     <div id="main-menu-wrapper" class="clearfix">
       
       <ul id="main-menu" class="fl">
-        <li class="current_page_item"><a href="index.html">الرئيسية</a></li>
-        <li><a href="blog.html">آخر الأخبار</a></li>
+        <li class="current_page_item"><a href="/">الرئيسية</a></li>
+        <li><a href="#">آخر الأخبار</a></li>
         <li>
-          <a href="gallery.html">صور</a>
+          <a href="#">صور</a>
+        </li>
+        <li><a href="events.html">أنشطة الجمعية</a>
           <ul>
-            <li><a href="gallery.html">حملة دثروني</a></li>
-            <li><a href="gallery.html">حملة إغاثة امبود</a></li>
-            <li><a href="gallery.html">صور عامة</a></li>
+            <li><a href="#">الثقافية</a></li>
+            <li><a href="#">الصحية</a></li>
+            <li><a href="#">الحملات</a></li>
+            <li><a href="#">التكوين</a></li>
           </ul>
         </li>
-        <li><a href="events.html">أحداث</a></li>
-        <li><a href="page.html">عن الجمعية</a></li>
-        <li><a href="contact.html">إتصل بنا</a></li>  
+        <li><a href="#">مشاريع تنتظر الدعم</a></li>
+        <li><a href="#">عن الجمعية</a></li>
+        <li><a href="#">إتصل بنا</a></li>  
       </ul>
-      
-      <!-- <form method="get" action="search-results.html" id="menu-search" class="fr">
-        <input type="text" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value='';" value="Search..." name="s" />
-      </form> -->
+
+      <ul id="main-menu" class="fr">
+        <li><a href="#">English</a></li>
+        <li> <a href="#">Francais</a> </li>
+      </ul>
       
     </div>
   
