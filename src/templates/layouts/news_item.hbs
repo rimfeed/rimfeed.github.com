@@ -7,9 +7,35 @@ layout: default.hbs
         <span class="breadcrumbs-arrow"></span>
         <a href="#">{{title}}</a>
     </div>
-    <div class="section">
-        {{#markdown}}
-        {{> body}}
-        {{/markdown}}
-    </div>
+
+    <div class="section clearfix">
+            <div class="blog-list-wrapper">
+                
+                <!-- BEGIN .blog-title-single -->
+                <div class="blog-title-single clearfix">
+                    <div class="fl">
+                        <h2><a href="#">{{title}}</a></h2>
+                    </div>
+                </div>
+                <!-- END .blog-title-single -->
+                
+                <!-- BEGIN .blog-content -->
+                <div class="blog-content blog-single clearfix">
+                    {{#if image}}
+                    <img src="{{assets}}/images/{{image}}" alt="" class="prev-image">
+                    {{/if}}
+                    {{#markdown}}
+                    {{> body}}
+                    {{/markdown}}
+                    
+                </div>
+                <!-- END .blog-content -->
+                
+                
+            </div>
+            
+
+        </div>
+
 </div>
+

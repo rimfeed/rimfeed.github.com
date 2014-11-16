@@ -3,15 +3,17 @@
 {{#each pages}}
 {{#lte @index ../../newsLimit}}
 <div class="blog-prev clearfix">
+    {{#if data.thumbnail}}
     <div class="blog-prev-img">
-        <img src="assets/images/temp-image1.jpg" alt="" />
+        <img src="{{assets}}/images/{{data.thumbnail}}" alt="" />
     </div>
+    {{/if}}
     <div class="blog-prev-content">
         <h4><a href="{{relative "dist/." dest}}">{{data.title}}</a>
         <br><br>
         {{!-- <span>تاريخ النشر {{formatDate data.date "%d/%m/%Y - %H:%M"}}</span> --}}
         </h4>
-        {{data.summary}}
+        <p>{{data.summary}}</p>
         <p><a href="{{> page-link}}" class="button1" style="white-space: nowrap;">إقرأ المزيد &raquo;</a></p>
     </div>
 </div>

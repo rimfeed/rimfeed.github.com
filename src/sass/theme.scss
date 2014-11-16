@@ -27,6 +27,12 @@ p, a, span {
     font-family: 'Droid Arabic Naskh', serif;
 }
 
+// post single
+.blog-list-wrapper a, .blog-title-single a{
+    font-family: 'Droid Arabic Kufi', serif;
+    font-weight: bold;
+}
+
 // correct directions of footer's arrows
 .jcarousel-next-horizontal {
     &, &:hover, &:focus, &:active {
