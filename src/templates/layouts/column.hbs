@@ -1,0 +1,15 @@
+---
+layout: default.hbs
+---
+<div id="content">
+    <div class="breadcrumbs">
+        <a href="/">الرئيسية</a>
+        <span class="breadcrumbs-arrow"></span>
+        <a href="#">{{title}}</a>
+    </div>
+    <div class="section">
+        {{#markdown}}
+        {{> body}}
+        {{/markdown}}
+    </div>
+</div>

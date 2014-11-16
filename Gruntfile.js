@@ -73,13 +73,43 @@ module.exports = function(grunt) {
           flatten: true,
           assets: '<%= config.dist %>/assets',
           bower: 'bower_components/',
-          layout: '<%= config.src %>/templates/layouts/default.hbs',
+          layoutdir: '<%= config.src %>/templates/layouts/',
+          layout: 'default.hbs',
           data: '<%= config.src %>/data/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
           plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap'],
+          collections: [
+            {
+              name: 'menu',
+              sortby: 'menuIndex'
+            },
+            {
+              name: 'column',
+              sortby: 'columnIndex'
+            },
+            {
+              name: 'news',
+              sortby: 'date',
+              sortorder: 'descending'
+            },
+            {
+              name: 'event',
+              sortby: 'date',
+              sortorder: 'descending'
+            },
+            {
+              name: 'featured',
+              sortby: 'date',
+              sortorder: 'descending'
+            }
+          ]
         },
         files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
+          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs'],
+          '<%= config.dist %>/columns/': ['<%= config.src %>/content/columns/**/*.hbs'],
+          '<%= config.dist %>/news/': ['<%= config.src %>/content/news/**/*.hbs'],
+          '<%= config.dist %>/events/': ['<%= config.src %>/content/events/**/*.hbs'],
+          '<%= config.dist %>/featured/': ['<%= config.src %>/content/featured/**/*.hbs'],
         }
       }
     },
@@ -129,6 +159,13 @@ module.exports = function(grunt) {
         cwd: 'src/images/',
         src: '**',
         dest: 'dist/assets/images/',
+        filter: 'isFile',
+      },
+      content: {
+        expand: true,
+        cwd: 'src/content/',
+        src: '**',
+        dest: 'dist/',
         filter: 'isFile',
       }
     },

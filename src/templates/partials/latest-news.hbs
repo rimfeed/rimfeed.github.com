@@ -1,0 +1,20 @@
+<h3 class="title1">آخر الأخبار<span class="title-end"></span></h3>
+{{#each news}}
+{{#each pages}}
+{{#lte @index ../../newsLimit}}
+<div class="blog-prev clearfix">
+    <div class="blog-prev-img">
+        <img src="assets/images/temp-image1.jpg" alt="" />
+    </div>
+    <div class="blog-prev-content">
+        <h4><a href="{{relative "dist/." dest}}">{{data.title}}</a>
+        <br><br>
+        {{!-- <span>تاريخ النشر {{formatDate data.date "%d/%m/%Y - %H:%M"}}</span> --}}
+        </h4>
+        {{data.summary}}
+        <p><a href="{{> page-link}}" class="button1" style="white-space: nowrap;">إقرأ المزيد &raquo;</a></p>
+    </div>
+</div>
+{{/lte}}
+{{/each}}
+{{/each}}

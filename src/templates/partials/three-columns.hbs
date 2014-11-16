@@ -1,0 +1,14 @@
+
+<div class="section clearfix block-section">
+    {{#each column}}
+    {{#each pages}}
+    {{#lte @index 2}}
+    <div class="one-third clearfix {{#is @index 2}} last-col {{/is}}">
+        <h3 class="title1">{{data.title}}<span class="title-end"></span></h3>
+        <p>{{data.summary}}</p>
+        <p><a href="{{relative "dist/." dest}}" class="button2">{{data.buttonText}}</a></p>
+    </div>
+    {{/lte}}
+    {{/each}}
+    {{/each}}
+</div>

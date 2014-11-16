@@ -47,30 +47,26 @@ component: navbar
     </div>  
     
     <div id="main-menu-wrapper" class="clearfix">
-      
       <ul id="main-menu" class="fl">
-        <li class="current_page_item"><a href="/">الرئيسية</a></li>
-        <li><a href="#">آخر الأخبار</a></li>
-        <li>
-          <a href="#">صور</a>
-        </li>
-        <li><a href="events.html">أنشطة الجمعية</a>
-          <ul>
-            <li><a href="#">الثقافية</a></li>
-            <li><a href="#">الصحية</a></li>
-            <li><a href="#">الحملات</a></li>
-            <li><a href="#">التكوين</a></li>
-          </ul>
-        </li>
-        <li><a href="#">مشاريع تنتظر الدعم</a></li>
-        <li><a href="#">عن الجمعية</a></li>
-        <li><a href="#">إتصل بنا</a></li>  
+      {{#each menu}}
+      {{#each pages}}
+      {{#is data.parent null}}
+        <li class="{{#is data.title ../../../title}}current_page_item{{/is}} {{#is data.title ../../../parent}}current_page_item{{/is}}">
+          <a href="{{> page-link}}">{{data.title}}</a>
+            {{#if data.hasChildren}}
+            <ul>
+            {{#each ../../../pages}}
+            {{#is data.parent ../data.title}}
+            <li><a href="{{> page-link}}">{{data.title}}</a></li>
+            {{/is}}
+            {{/each}}
+            </ul>
+            {{/if}}
+          </li>
+      {{/is}}
+      {{/each}}
+      {{/each}}
       </ul>
-
-      <!-- <ul id="main-menu" class="fr">
-        <li><a href="#">English</a></li>
-        <li> <a href="#">Francais</a> </li>
-      </ul> -->
       
     </div>
   
