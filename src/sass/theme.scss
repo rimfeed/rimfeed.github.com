@@ -33,6 +33,22 @@ p, a, span {
     font-weight: bold;
 }
 
+.blog-content {
+    p {
+        font-size: 1.2em;
+    }
+    &.blog-single {
+        img {
+            max-width: 100%;
+            float: right;
+        }
+        p {
+            font-size: 1.3em;
+        }
+    }
+}
+
+
 // correct directions of footer's arrows
 .jcarousel-next-horizontal {
     &, &:hover, &:focus, &:active {
