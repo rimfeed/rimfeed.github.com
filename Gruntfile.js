@@ -154,6 +154,10 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      cname: {
+        src: 'CNAME',
+        dest: 'dist/CNAME'
+      },
       main: {
         expand: true,
         cwd: 'src/images/',
