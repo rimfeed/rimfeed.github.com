@@ -9,8 +9,26 @@ eventsLimit: 2
 
 <!-- BEGIN #content -->
 <div id="content">
-    <div class="section">
-        {{title}}
+    <div class="gallery-section clearfix">
+        <h2 class="title2">Gallery</h2>
+
+        {{#each pictures}}
+        <div class="one-third {{#is col 2}} last-col {{/is}} ">
+            <!-- BEGIN .gallery-item -->
+            <div class="gallery-item">
+                <div class="gallery-thumbnail">
+                    <a href="/assets/images/pictures/{{name}}"  rel="prettyPhoto[pp_gal]">
+                        <span class="zoom-wrapper">
+                            <span class="zoom"></span>
+                        </span>
+                        <img width="298" height="115" src="/assets/images/pictures/{{name}}" alt="">
+                    </a>
+                </div>
+
+                <!-- END .gallery-item -->
+            </div>
+        </div>
+        {{/each}}
     </div>
     
 <!-- END #content -->

@@ -9,6 +9,8 @@
 
 'use strict';
 
+var _ = require('underscore');
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // '<%= config.src %>/templates/pages/{,*/}*.hbs'
@@ -16,7 +18,6 @@
 // '<%= config.src %>/templates/pages/**/*.hbs'
 
 module.exports = function(grunt) {
-
   require('time-grunt')(grunt);
 
   // Project configuration.
@@ -78,6 +79,12 @@ module.exports = function(grunt) {
           data: '<%= config.src %>/data/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
           plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap'],
+          pictures: _.map(grunt.file.expand('src/images/pictures/*'), function (path, index) {
+            return {
+              name: path.replace('src/images/pictures/', ''),
+              col: index % 3
+            };
+          }),
           collections: [
             {
               name: 'menu',
@@ -157,20 +164,17 @@ module.exports = function(grunt) {
       cname: {
         src: 'CNAME',
         dest: 'dist/CNAME'
-      },
-      main: {
-        expand: true,
-        cwd: 'src/images/',
-        src: '**',
-        dest: 'dist/assets/images/',
-        filter: 'isFile',
-      },
-      content: {
-        expand: true,
-        cwd: 'src/content/',
-        src: '**',
-        dest: 'dist/',
-        filter: 'isFile',
+      }
+    },
+
+    imagemin: {
+      images: {                         // Another target
+        files: [{
+          expand: true,                  // Enable dynamic expansion
+          cwd: 'src/images/',                   // Src matches are relative to this path
+          src: ['**/*.{png,jpg,JPG,gif}'],   // Actual patterns to match
+          dest: 'dist/assets/images/'                  // Destination path prefix
+        }]
       }
     },
 
@@ -196,6 +200,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-sass');
@@ -217,6 +223,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'imagemin',
     'browserify',
     'sass',
     'cssflip',

@@ -94,3 +94,25 @@ p, a, span {
     direction: ltr;
     text-align: left;
 }
+
+div.pp_default {
+    .pp_top, .pp_bottom {
+        .pp_left {
+            left: auto;
+            right: 0;
+        }
+        .pp_right {
+            left: 0;
+            right: auto;
+        }
+    }
+
+    .pp_content_container {
+        .pp_left {
+            padding-left: 0;
+        }
+        .pp_right {
+            padding-left: 20px;
+        }
+    }
+}
