@@ -115,4 +115,14 @@ div.pp_default {
             padding-left: 20px;
         }
     }
+
+    .pp_next:hover {
+        background-image: url(../images/prettyPhoto/default/sprite_prev.png);
+        background-position-x: right;
+    }
+
+    .pp_previous:hover {
+        background-image: url(../images/prettyPhoto/default/sprite_next.png);
+        background-position-x: left;
+    }
 }
