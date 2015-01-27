@@ -1,0 +1,44 @@
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css');
+[lang="ar"] body {
+  font-family: 'Droid Arabic Naskh', serif; }
+[lang="ar"] .title {
+  font-family: 'Droid Arabic Kufi', serif; }
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header, .marketing, .footer {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 24px; }
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px; }
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  text-align: center; }
+
+.welcome {
+  padding-top: 24px; }
+  .welcome .logo {
+    width: 250px; }
+  .welcome p {
+    font-size: 18px;
+    line-height: 34px;
+    margin-bottom: 16px; }
