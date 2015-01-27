@@ -2,127 +2,62 @@
 
 @import url('http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css');
 
+[lang="ar"] {
+    body {
+        font-family: 'Droid Arabic Naskh', serif;
+    }
 
-@import 'relief/superfish';
-@import 'relief/prettyPhoto';
-@import 'relief/flexslider';
-
-@import 'relief_styles';
-
-@import 'relief/responsive';
-@import 'relief/colours/green';
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-#main-menu,
-.flex-caption p,
-.button1,
-.button2,
-.button3,
-#submit,
-.msg1 p,
-#tabs .nav li,
-table th,
-.comment-count h3 .comments-off {
-    font-family: 'Droid Arabic Naskh', serif;
+    // Headers
+    .title {
+        font-family: 'Droid Arabic Kufi', serif;
+    }
 }
 
-
-#main-menu {
-    max-width: 930px;
-}
-// Headers
-#main-menu a, .widget-title h4, .title1, .title2{
-    font-family: 'Droid Arabic Kufi', serif;
-}
-.title2, .blog-content h2, .blog-content h3 {
-    font-family: 'Droid Arabic Kufi', serif;
-    font-weight: bold;
-}
-#title h1 {
-    font-family: 'Droid Arabic Naskh', serif;
-    font-weight: bold;
-}
-p, a, span {
-    font-family: 'Droid Arabic Naskh', serif;
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-// post single
-.blog-list-wrapper a, .blog-title-single a{
-    font-family: 'Droid Arabic Kufi', serif;
-    font-weight: bold;
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-.blog-content {
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 24px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.welcome {
+    padding-top: 24px;
+
+    .logo {
+        width: 250px;
+    }
+
     p {
-        font-size: 1.2em;
-    }
-    &.blog-single {
-        img {
-            max-width: 100%;
-            float: right;
-        }
-        p {
-            font-size: 1.3em;
-        }
-    }
-}
-
-
-// correct directions of footer's arrows
-.jcarousel-next-horizontal {
-    &, &:hover, &:focus, &:active {
-        background-position: 0 -36px;
-    }
-}
-.jcarousel-prev-horizontal, .jcarousel-prev-disabled-horizontal {
-    &, &:hover, &:focus, &:active {
-        background-position: -26px 0;
-    }
-}
-
-// fix flexslider
-.flex-viewport {
-    direction: rtl;
-}
-.flex-caption {
-    direction: ltr;
-    text-align: left;
-}
-
-div.pp_default {
-    .pp_top, .pp_bottom {
-        .pp_left {
-            left: auto;
-            right: 0;
-        }
-        .pp_right {
-            left: 0;
-            right: auto;
-        }
-    }
-
-    .pp_content_container {
-        .pp_left {
-            padding-left: 0;
-        }
-        .pp_right {
-            padding-left: 20px;
-        }
-    }
-
-    .pp_next:hover {
-        background-image: url(../images/prettyPhoto/default/sprite_prev.png);
-        background-position-x: right;
-    }
-
-    .pp_previous:hover {
-        background-image: url(../images/prettyPhoto/default/sprite_next.png);
-        background-position-x: left;
+        font-size: 18px;
+        line-height: 34px;
+        margin-bottom: 16px;
     }
 }

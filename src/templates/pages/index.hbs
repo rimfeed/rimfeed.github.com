@@ -1,33 +1,55 @@
 ---
-title: الرئيسية
-menu: true
-menuIndex: 1
-pageColumns: <%= columns %>
-statMessage: <%= statistics.elirada_2014 %>
-newsLimit: 3
-eventsLimit: 2
+title: تطبيق ريم فيد
+arabic: true
 ---
 
-{{> index-slides }}
-
 <!-- BEGIN #content -->
-<div id="content">
-    {{> three-columns}}
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6 welcome">
+        <img class="logo" src="{{assets}}/images/pictures/logo.png" alt="">
     
-    <div class="section">
-        {{> stat-message}}
-    </div>
-    
-    <div class="blog-event-prev-wrapper section clearfix">
-        <div class="two-thirds">
-            {{> latest-news}}
-        </div>
-        <div class="one-third last-col">
-            {{> latest-videos}}
-        </div>
-    </div>
-    
-<!-- END #content -->
-</div>
+        <br>
+        <br>
+        {{!-- <p>ريم فيد تطبيق موريتاني للأخبار الموريتانية.</p> --}}
 
-{{!-- {{stringify this}} --}}
+        <p>تطبيق "ريم فيد" يبقيك على إطلاع بآخر الأخبار الموريتانية ومن كل المصادر.</p>
+
+        <p>
+            يقوم "ريم فيد" بجمع الأخبار بسرعة فائقة.
+
+            وعرضها بستخدام تصميم عصري وأنيق.
+        </p>
+        <p> 
+            "ريم فيد" يرسل لك تنبيهات بالأخبار العاجلة والمهمة، لكي تبقي في الحدث.
+        </p>
+        <p> 
+            تطبيق "ريم فيد" مجاني ومتوفر لكل من أجهزة ألونرويد والأي فون.
+        </p>
+        <p> 
+            التطبيق في المرحلة التجريبية (Beta) الآن. حيث يتم جمع الآراء والتقييمات من الأشخاص الذين تتم دعوتهم لتجربة التطبيق. 
+        </p>
+        <p> 
+            يمكنك إرسال طلب لتتم دعوتك لتجريب وتقييم التطبيق، بإرسال رسالة إلى البريد <a href="mailto:rimfeed@gmail.com">rimfeed@gmail.com</a>
+        </p>
+
+        <p>
+        <a class="btn btn-lg btn-success" href="http://kontactr.com/user/rimfeed" role="button">
+            <i class="fa fa-fw fa-envelope-o"></i>
+            إطلب دعوة لتحميل النسخة التجريبية</a>
+
+        {{!-- <p>
+        <a class="btn btn-lg btn-success" href="#" role="button">
+            <i class="fa fa-fw fa-android"></i>
+            تحميل أندرويد</a>
+        </p><p>
+        <a class="btn btn-lg btn-success" href="#" role="button">
+            <i class="fa fa-fw fa-apple"></i>
+            تحميل إيفون</a>
+        </p> --}}
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <img src="{{assets}}/images/pictures/iphone-index.gif" class="img-responsive" alt="">
+    </div>
+</div>
+<br>
+<br>

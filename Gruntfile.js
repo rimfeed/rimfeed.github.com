@@ -78,45 +78,10 @@ module.exports = function(grunt) {
           layout: 'default.hbs',
           data: '<%= config.src %>/data/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
-          plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap'],
-          pictures: _.map(grunt.file.expand('src/images/pictures/*'), function (path, index) {
-            return {
-              name: path.replace('src/images/pictures/', ''),
-              col: index % 3
-            };
-          }),
-          collections: [
-            {
-              name: 'menu',
-              sortby: 'menuIndex'
-            },
-            {
-              name: 'column',
-              sortby: 'columnIndex'
-            },
-            {
-              name: 'news',
-              sortby: 'date',
-              sortorder: 'descending'
-            },
-            {
-              name: 'event',
-              sortby: 'date',
-              sortorder: 'descending'
-            },
-            {
-              name: 'featured',
-              sortby: 'date',
-              sortorder: 'descending'
-            }
-          ]
+          plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap']
         },
         files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs'],
-          '<%= config.dist %>/columns/': ['<%= config.src %>/content/columns/**/*.hbs'],
-          '<%= config.dist %>/news/': ['<%= config.src %>/content/news/**/*.hbs'],
-          '<%= config.dist %>/events/': ['<%= config.src %>/content/events/**/*.hbs'],
-          '<%= config.dist %>/featured/': ['<%= config.src %>/content/featured/**/*.hbs'],
+          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
         }
       }
     },
@@ -124,13 +89,6 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove any previously-created files.
     clean: ['<%= config.dist %>/**/*.{html,xml}'],
-
-    'gh-pages': {
-      options: {
-        base: 'dist'
-      },
-      src: ['**']
-    },
 
     browserify: {
       dist: {
@@ -202,7 +160,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-css-flip');
